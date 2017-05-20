@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::group(['prefix' => 'customer', 'namespace' => 'customer'], function()
+{
+    Route::get('/','CustomerController@index');
+    Route::get('/index','CustomerController@index');
+    Route::get('/create', 'CustomerController@create');
+    Route::get('/detail', 'CustomerController@customer_detail');
+    Route::get('/task', 'CustomerController@task');
+
 });
